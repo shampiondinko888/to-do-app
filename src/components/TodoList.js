@@ -1,7 +1,6 @@
 import React from "react";
 
 function TodoList() {
-  // Dohvatite todo listu iz stanja ili lokalnog spremišta
   const todos = [];
 
   return (

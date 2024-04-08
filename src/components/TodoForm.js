@@ -2,17 +2,17 @@ import React, { useState } from "react";
 
 function TodoForm() {
   const [inputValue, setInputValue] = useState("");
-  const [submittedValue, setSubmittedValue] = useState(""); // Dodatno stanje za prikaz unesenih vrijednosti
+  const [submittedValue, setSubmittedValue] = useState(""); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
-    setSubmittedValue(inputValue); // Postavljamo unesenu vrijednost u stanje za prikaz
-    setInputValue(""); // Resetujemo input polje nakon submita
+    setSubmittedValue(inputValue); 
+    setInputValue(""); 
   };
 
   const handleChange = (e) => {
-    setInputValue(e.target.value); // Ažuriramo stanje input vrijednosti dok se mijenja
+    setInputValue(e.target.value); 
   };
 
   return (
@@ -20,12 +20,12 @@ function TodoForm() {
       <input
         type="text"
         value={inputValue}
-        onChange={handleChange} // Dodajemo event handler za promjenu inputa
+        onChange={handleChange}
         placeholder="Add Todo"
       />
       <button type="submit">Add</button>
       {submittedValue && <p>Uneseno: {submittedValue}</p>}{" "}
-      {/* Prikaz unesenog teksta ispod inputa */}
+      {}
     </form>
   );
 }
