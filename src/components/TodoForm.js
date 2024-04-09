@@ -2,17 +2,17 @@ import React, { useState } from "react";
 
 function TodoForm() {
   const [inputValue, setInputValue] = useState("");
-  const [submittedValue, setSubmittedValue] = useState(""); 
+  const [todos, setTodos] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
-    setSubmittedValue(inputValue); 
-    setInputValue(""); 
+    setTodos([...todos, inputValue]);
+    setInputValue("");
   };
 
   const handleChange = (e) => {
-    setInputValue(e.target.value); 
+    setInputValue(e.target.value);
   };
 
   return (
@@ -24,8 +24,11 @@ function TodoForm() {
         placeholder="Add Todo"
       />
       <button type="submit">Add</button>
-      {submittedValue && <p>Uneseno: {submittedValue}</p>}{" "}
-      {}
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
     </form>
   );
 }
