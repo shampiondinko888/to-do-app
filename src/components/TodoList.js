@@ -1,33 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import TodoItem from "./TodoItem";
 
-const ITEM_KEY = "todoList";
-
-function removeTodo(event, id) {
-  const localStorageTodos = JSON.parse(localStorage.getItem(ITEM_KEY));
-  const newLocalStorageTodos = localStorageTodos.filter(
-    (todo) => todo.id !== id
-  );
-  localStorage.setItem(ITEM_KEY, JSON.stringify(newLocalStorageTodos));
-  event.currentTarget.parentNode.remove();
-}
-
-function TodoList() {
-  const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem(ITEM_KEY)) || []
-  );
-
+const TodoList = ({ todos, toggleTodo, removeTodo }) => {
   return (
-    <ul className="TodoList">
+    <ul>
       {todos.map((todo) => (
-        <li key={todo.id}>
-          {todo.text}
-          <button onClick={(event) => removeTodo(event, todo.id)}>
-            Remove
-          </button>
-        </li>
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+        />
       ))}
     </ul>
   );
-}
+};
 
 export default TodoList;

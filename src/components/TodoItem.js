@@ -1,16 +1,25 @@
 import React from "react";
-import TodoItem from "./TodoItem";
 
-function TodoList() {
-  const todos = [];
+const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
+  const { id, inputValue, checked } = todo;
+
+  const handleToggleTodo = () => {
+    toggleTodo(id);
+  };
+
+  const handleRemoveTodo = () => {
+    removeTodo(id);
+  };
 
   return (
-    <ul className="TodoList">
-      {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </ul>
+    <li>
+      <input type="checkbox" checked={checked} onChange={handleToggleTodo} />
+      <label style={{ textDecoration: checked ? "line-through" : "" }}>
+        {inputValue}
+      </label>
+      <button onClick={handleRemoveTodo}>Delete</button>
+    </li>
   );
-}
+};
 
-export default TodoList;
+export default TodoItem;
