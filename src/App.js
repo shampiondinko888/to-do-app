@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InputTodo from "./components/InputTodo";
 import TodoList from "./components/TodoList";
-import "./App.css"; // Uvoz CSS datoteke
+import "./App.css";
 
 const ITEM_KEY = "todos";
 

@@ -15,10 +15,13 @@ body {
   padding: 0 20px;
   text-align: center;
 }
+ul {
+  list-style-type: none;
+}
 
 .todo-list {
-  list-style-type: none;
-  padding: 0;
+  padding: 0 !important;
+  list-style: none;
 }
 
 .todo-item {
@@ -53,7 +56,4 @@ body {
 
 .todo-item .delete-btn:hover {
   background-color: #c82333;
-}
-.todo-list {
-  list-style-type: none;
 }
